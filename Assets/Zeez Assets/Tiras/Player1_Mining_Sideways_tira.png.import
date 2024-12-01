@@ -1,0 +1,34 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://c0rs418bbkr5d"
+path="res://.godot/imported/Player1_Mining_Sideways_tira.png-0a988a97cfef4d9a154aa5c4854d9ed8.ctex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://Assets/Zeez Assets/Tiras/Player1_Mining_Sideways_tira.png"
+dest_files=["res://.godot/imported/Player1_Mining_Sideways_tira.png-0a988a97cfef4d9a154aa5c4854d9ed8.ctex"]
+
+[params]
+
+compress/mode=0
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=false
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=1
