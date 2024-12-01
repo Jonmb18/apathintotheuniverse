@@ -1,0 +1,51 @@
+[gd_scene load_steps=6 format=3 uid="uid://dxk4ybn21rnio"]
+
+[ext_resource type="Script" path="res://Scripts/planet_selector.gd" id="1_ktxpd"]
+[ext_resource type="Texture2D" uid="uid://v64avpf7cqka" path="res://Assets/Zeez Assets/mapaNaveItens_e_spriteNave/Tela_seletordeplanetas.png" id="2_mqncq"]
+[ext_resource type="FontFile" uid="uid://d1gb3fyjed6vr" path="res://Assets/fonts/Welbut__.ttf" id="3_c7fq8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wsk2d"]
+size = Vector2(64, 38)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tkowx"]
+size = Vector2(81, 58)
+
+[node name="PlanetSelector" type="Area2D"]
+script = ExtResource("1_ktxpd")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_wsk2d")
+debug_color = Color(0.886275, 0, 0.807843, 0.121569)
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+texture = ExtResource("2_mqncq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_tkowx")
+
+[node name="InteractLabel" type="Label" parent="."]
+z_index = 1
+texture_filter = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -106.0
+offset_top = -64.0
+offset_right = 133.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("3_c7fq8")
+theme_override_font_sizes/font_size = 14
+text = "Press E to select a planet."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

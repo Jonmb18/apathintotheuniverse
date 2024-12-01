@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="PlanetDetails" load_steps=2 format=3 uid="uid://b73lwpa1y8b4g"]
+
+[ext_resource type="Script" path="res://resources/planet.gd" id="1_0bhyv"]
+
+[resource]
+script = ExtResource("1_0bhyv")
+planetName = ""
+mapSeed = 0
+setSeed = false
+mapSize = Vector2i(512, 512)
+caveSmoothing = 2
+caveGenerationValue = 0.4
+resourceGeneration = 3.0
+plantsGeneration = 0.2
+oresGeneration = 0.2
+tilesetAmount = 1
+WallsTileSetID = Array[int]([9])
+WallsSideTileSetID = Array[int]([16])
+GroundTileSetID = Array[int]([15])
+PlantTile = Array[Vector2i]([Vector2i(2, 0)])
+ResourceTile = Array[Vector2i]([Vector2i(0, 1)])
+DamageRequiredToMine = 4
+playerSpeedMultiplier = 0.7
+useCustomEffect = true
+customEffectColor = Color(0.3458, 0.665513, 0.91, 1)

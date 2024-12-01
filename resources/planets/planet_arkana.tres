@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="PlanetDetails" load_steps=2 format=3 uid="uid://ceorbc4w5hheh"]
+
+[ext_resource type="Script" path="res://resources/planet.gd" id="1_hhsal"]
+
+[resource]
+script = ExtResource("1_hhsal")
+planetName = "Arkana"
+mapSeed = 0
+setSeed = false
+mapSize = Vector2i(512, 512)
+caveSmoothing = 3
+caveGenerationValue = 0.4
+resourceGeneration = 3.5
+plantsGeneration = 0.175
+oresGeneration = 0.2
+tilesetAmount = 1
+WallsTileSetID = Array[int]([8])
+WallsSideTileSetID = Array[int]([0])
+GroundTileSetID = Array[int]([1])
+PlantTile = Array[Vector2i]([Vector2i(1, 0)])
+ResourceTile = Array[Vector2i]([Vector2i(0, 0)])
+DamageRequiredToMine = 2
+playerSpeedMultiplier = 1.0
+useCustomEffect = false
+customEffectColor = Color(1, 1, 1, 1)

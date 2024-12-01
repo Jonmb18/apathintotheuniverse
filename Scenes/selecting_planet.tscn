@@ -1,0 +1,79 @@
+[gd_scene load_steps=8 format=3 uid="uid://fnwyl1jqshue"]
+
+[ext_resource type="Script" path="res://Scripts/selecting_planet.gd" id="1_2aylo"]
+[ext_resource type="Texture2D" uid="uid://71exm2la5bsb" path="res://UI/Background/SelectingPlanet_BG.png" id="1_jplhp"]
+[ext_resource type="FontFile" uid="uid://2gwjcer5hsby" path="res://Assets/fonts/FuturexVariationSwish.ttf" id="3_tkukf"]
+[ext_resource type="PackedScene" uid="uid://dmshblnfn6u24" path="res://TestingShit/scroll_container.tscn" id="4_qldh0"]
+[ext_resource type="FontFile" uid="uid://d1gb3fyjed6vr" path="res://Assets/fonts/Welbut__.ttf" id="5_ukj7h"]
+[ext_resource type="AudioStream" uid="uid://bllhsayr67c63" path="res://Assets/Audio/Space Music Pack/loading.wav" id="6_41x2c"]
+[ext_resource type="PackedScene" uid="uid://devsi6axw5hac" path="res://TestingShit/card_info.tscn" id="7_sptpv"]
+
+[node name="SelectingPlanet" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2aylo")
+
+[node name="SelectingPlanetBg" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+scale = Vector2(1.07052, 1.09501)
+texture = ExtResource("1_jplhp")
+
+[node name="Back" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 28.0
+offset_top = -58.0
+offset_right = 193.0
+offset_bottom = -27.0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("3_tkukf")
+theme_override_font_sizes/font_size = 24
+text = "Back to Game Scene"
+
+[node name="ScrollContainer" parent="." instance=ExtResource("4_qldh0")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -137.0
+offset_right = 4.0
+offset_bottom = -129.0
+scale = Vector2(1.25, 1.25)
+
+[node name="TipLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -129.0
+offset_top = 71.0
+offset_right = 167.0
+offset_bottom = 100.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("5_ukj7h")
+theme_override_font_sizes/font_size = 20
+text = "Press Enter to Select Level."
+
+[node name="SelectingMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_41x2c")
+volume_db = -4.0
+pitch_scale = 1.5
+autoplay = true
+
+[node name="CardInfo" parent="." instance=ExtResource("7_sptpv")]
+layout_mode = 1
+offset_left = -82.0
+offset_top = -135.0
+offset_right = -82.0
+offset_bottom = -135.0
+
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]

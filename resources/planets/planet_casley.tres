@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="PlanetDetails" load_steps=2 format=3 uid="uid://dolnt4ccubmd3"]
+
+[ext_resource type="Script" path="res://resources/planet.gd" id="1_0rr0h"]
+
+[resource]
+script = ExtResource("1_0rr0h")
+planetName = "Casley"
+mapSeed = 0
+setSeed = false
+mapSize = Vector2i(512, 512)
+caveSmoothing = 5
+caveGenerationValue = 0.3
+resourceGeneration = 2.5
+plantsGeneration = 0.2
+oresGeneration = 0.215
+tilesetAmount = 2
+WallsTileSetID = Array[int]([5, 7])
+WallsSideTileSetID = Array[int]([12, 13])
+GroundTileSetID = Array[int]([11, 10])
+PlantTile = Array[Vector2i]([Vector2i(3, 0)])
+ResourceTile = Array[Vector2i]([Vector2i(2, 2), Vector2i(2, 3)])
+DamageRequiredToMine = 3
+playerSpeedMultiplier = 0.95
+useCustomEffect = false
+customEffectColor = Color(1, 1, 1, 1)

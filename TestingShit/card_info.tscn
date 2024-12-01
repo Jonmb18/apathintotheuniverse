@@ -1,0 +1,76 @@
+[gd_scene load_steps=3 format=3 uid="uid://devsi6axw5hac"]
+
+[ext_resource type="Script" path="res://TestingShit/card_info.gd" id="1_21xih"]
+[ext_resource type="FontFile" uid="uid://d1gb3fyjed6vr" path="res://Assets/Fonts/Welbut__.ttf" id="1_qxtor"]
+
+[node name="CardInfo" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -324.0
+offset_right = -576.0
+offset_bottom = -324.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_21xih")
+
+[node name="Panel" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -176.0
+offset_right = 260.0
+offset_bottom = 323.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PlanetName" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = -139.0
+offset_right = 115.0
+offset_bottom = -116.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("1_qxtor")
+text = "Nome"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="PlanetDescription" type="Label" parent="."]
+layout_mode = 2
+offset_left = -85.0
+offset_top = -98.0
+offset_right = 245.0
+offset_bottom = 240.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_qxtor")
+theme_override_font_sizes/font_size = 12
+text = "Descrição"
+autowrap_mode = 3
+justification_flags = 35
+
+[node name="EnterPlanet" type="Button" parent="."]
+layout_mode = 0
+offset_left = -59.0
+offset_top = 250.0
+offset_right = 219.0
+offset_bottom = 296.0
+text = "Start Game"
+
+[connection signal="pressed" from="EnterPlanet" to="." method="_on_enter_planet_pressed"]

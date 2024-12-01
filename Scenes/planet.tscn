@@ -1,0 +1,83 @@
+[gd_scene load_steps=10 format=3 uid="uid://clsue7wagoior"]
+
+[ext_resource type="Script" path="res://Scripts/planet.gd" id="1_5ugag"]
+[ext_resource type="Script" path="res://Scripts/planet_code.gd" id="1_wip0i"]
+[ext_resource type="TileSet" uid="uid://c7gbwn2luj6ok" path="res://resources/planet_tileset.tres" id="2_a8wyi"]
+[ext_resource type="Resource" uid="uid://ceorbc4w5hheh" path="res://resources/planets/planet_arkana.tres" id="2_eadv4"]
+[ext_resource type="PackedScene" uid="uid://b1aihj4iw6qq6" path="res://Scenes/player.tscn" id="3_uxql2"]
+[ext_resource type="Script" path="res://Scripts/circle_area.gd" id="6_0oaay"]
+[ext_resource type="Texture2D" uid="uid://cnxy4qjamsben" path="res://Assets/sprites/aqua.png" id="6_waf1s"]
+[ext_resource type="AudioStream" uid="uid://csywe6286chhd" path="res://Assets/Audio/Space Music Pack/in-the-wreckage.wav" id="8_dyrp2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0g3vh"]
+radius = 55.0091
+
+[node name="Planet" type="Node2D"]
+script = ExtResource("1_5ugag")
+planetResource = ExtResource("2_eadv4")
+
+[node name="TileMapLayer" type="Node2D" parent="."]
+y_sort_enabled = true
+script = ExtResource("1_wip0i")
+
+[node name="Floor" type="TileMapLayer" parent="TileMapLayer"]
+use_parent_material = true
+tile_set = ExtResource("2_a8wyi")
+
+[node name="Walls_Sub" type="TileMapLayer" parent="TileMapLayer" groups=["Mineables"]]
+y_sort_enabled = true
+use_parent_material = true
+tile_set = ExtResource("2_a8wyi")
+
+[node name="Resources" type="TileMapLayer" parent="TileMapLayer" groups=["Resources"]]
+modulate = Color(0.35, 0.35, 0.35, 1)
+y_sort_enabled = true
+use_parent_material = true
+tile_set = ExtResource("2_a8wyi")
+y_sort_origin = 1
+
+[node name="Player" parent="TileMapLayer" instance=ExtResource("3_uxql2")]
+use_parent_material = true
+position = Vector2(-78, -71)
+
+[node name="Walls" type="TileMapLayer" parent="TileMapLayer" groups=["Mineables"]]
+y_sort_enabled = true
+use_parent_material = true
+tile_set = ExtResource("2_a8wyi")
+y_sort_origin = 2
+
+[node name="Breaking" type="TileMapLayer" parent="TileMapLayer"]
+y_sort_enabled = true
+use_parent_material = true
+tile_set = ExtResource("2_a8wyi")
+y_sort_origin = 2
+
+[node name="CircleArea" type="Sprite2D" parent="TileMapLayer"]
+modulate = Color(1, 1, 1, 0.501961)
+use_parent_material = true
+texture = ExtResource("6_waf1s")
+script = ExtResource("6_0oaay")
+
+[node name="Area2D" type="Area2D" parent="TileMapLayer/CircleArea"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMapLayer/CircleArea/Area2D"]
+shape = SubResource("CircleShape2D_0g3vh")
+
+[node name="Spaceship" type="TileMapLayer" parent="TileMapLayer"]
+modulate = Color(0.34902, 0.34902, 0.34902, 1)
+y_sort_enabled = true
+use_parent_material = true
+tile_set = ExtResource("2_a8wyi")
+y_sort_origin = 2
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_dyrp2")
+volume_db = -15.928
+pitch_scale = 0.71
+autoplay = true
+
+[connection signal="toCollect" from="TileMapLayer/Player" to="TileMapLayer" method="_CollectResource"]
+[connection signal="toMine" from="TileMapLayer/Player" to="TileMapLayer" method="_MineOre"]
+[connection signal="body_entered" from="TileMapLayer/CircleArea/Area2D" to="TileMapLayer/CircleArea" method="_on_area_2d_body_entered"]

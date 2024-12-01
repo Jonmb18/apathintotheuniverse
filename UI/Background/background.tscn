@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=3 uid="uid://bc5tmnhjdx3y4"]
+
+[ext_resource type="Texture2D" uid="uid://cqwviivics4hj" path="res://Sprites/BG/background_layer_1.png" id="1_ynh0u"]
+[ext_resource type="Texture2D" uid="uid://bskvtda3yw4hv" path="res://Sprites/BG/background_layer_2.png" id="2_cj8u0"]
+[ext_resource type="Script" path="res://UI/Background/foreground.gd" id="3_eoyqw"]
+[ext_resource type="Texture2D" uid="uid://b4y337os1ojfa" path="res://Sprites/BG/background_layer_3.png" id="4_lwfro"]
+[ext_resource type="Script" path="res://UI/Background/trees.gd" id="5_s27wf"]
+
+[node name="BackgroundMenu" type="Node2D"]
+position = Vector2(574, 324)
+scale = Vector2(3.92, 3.92)
+
+[node name="Background" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_ynh0u")
+
+[node name="Foreground" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_cj8u0")
+script = ExtResource("3_eoyqw")
+
+[node name="Trees" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("4_lwfro")
+script = ExtResource("5_s27wf")

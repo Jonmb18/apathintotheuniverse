@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://bqvis4r0w8s7g"]
+
+[ext_resource type="Texture2D" uid="uid://bd767omp3b8yn" path="res://Assets/tilesets/brownstone_Tileset✔.png" id="2_xvfx1"]
+
+[sub_resource type="GDScript" id="GDScript_hiqvt"]
+script/source = "extends Node2D
+class_name WallTile
+
+func _defineCollision(val: bool):
+	$StaticBody2D/CollisionShape2D.call_deferred(\"disabled\", !val)
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xlhhd"]
+size = Vector2(14, 14)
+
+[node name="WallTile" type="Node2D"]
+script = SubResource("GDScript_hiqvt")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_xvfx1")
+hframes = 16
+vframes = 16
+frame = 17
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_xlhhd")

@@ -1,0 +1,107 @@
+[gd_scene load_steps=5 format=3 uid="uid://ba6ibl2ek5tca"]
+
+[ext_resource type="FontFile" uid="uid://2gwjcer5hsby" path="res://Assets/fonts/FuturexVariationSwish.ttf" id="1_lan3d"]
+[ext_resource type="Script" path="res://Scripts/play_menu.gd" id="1_suny1"]
+[ext_resource type="Texture2D" uid="uid://bjprmkqebp2ao" path="res://UI/Background/MainMenu_BG.png" id="2_q012n"]
+[ext_resource type="FontFile" uid="uid://d1gb3fyjed6vr" path="res://Assets/fonts/Welbut__.ttf" id="4_vs4g0"]
+
+[node name="PlayMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_suny1")
+
+[node name="MainMenuBg" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+texture = ExtResource("2_q012n")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -198.0
+offset_top = 75.0
+offset_right = 230.0
+offset_bottom = 224.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("1_lan3d")
+theme_override_font_sizes/font_size = 64
+text = "A Path Into The Universe"
+autowrap_mode = 3
+
+[node name="Singleplayer" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -107.5
+offset_top = -57.0
+offset_right = 107.5
+offset_bottom = -21.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_lan3d")
+theme_override_font_sizes/font_size = 24
+text = "Singleplayer"
+
+[node name="Multiplayer" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -107.5
+offset_top = 6.0
+offset_right = 107.5
+offset_bottom = 42.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_lan3d")
+theme_override_font_sizes/font_size = 24
+disabled = true
+text = "Multiplayer"
+
+[node name="Back" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 19.0
+offset_top = -72.0
+offset_right = 234.0
+offset_bottom = -36.0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("1_lan3d")
+theme_override_font_sizes/font_size = 24
+text = "Back to Main Menu"
+flat = true
+alignment = 0
+
+[node name="WIP" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -39.0
+offset_top = 47.0
+offset_right = 93.0
+offset_bottom = 70.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_vs4g0")
+theme_override_font_sizes/font_size = 10
+text = "Work in Progress"
+
+[connection signal="pressed" from="Singleplayer" to="." method="_on_singleplayer_pressed"]
+[connection signal="pressed" from="Multiplayer" to="." method="_on_multiplayer_pressed"]
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]

@@ -1,0 +1,59 @@
+[gd_scene load_steps=6 format=3 uid="uid://je75eq4v1210"]
+
+[ext_resource type="Script" path="res://Tileset/Spaceship/pedra_musgo.gd" id="1_f2hwe"]
+[ext_resource type="Texture2D" uid="uid://cl5q4xxuykp37" path="res://Assets/Zeez Assets/pedras_Ancestrais/pedracommusgo.png" id="1_ryx2e"]
+[ext_resource type="FontFile" uid="uid://d1gb3fyjed6vr" path="res://Assets/fonts/Welbut__.ttf" id="3_rouw5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g772w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kildv"]
+size = Vector2(80, 102)
+
+[node name="PedraMusgo" type="Area2D"]
+script = ExtResource("1_f2hwe")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_g772w")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+texture = ExtResource("1_ryx2e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 17)
+shape = SubResource("RectangleShape2D_kildv")
+debug_color = Color(0, 0.595, 0.7, 0)
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = -417.0
+offset_top = -102.0
+offset_right = -54.0
+offset_bottom = 100.0
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -176.5
+offset_top = -73.5
+offset_right = 176.5
+offset_bottom = 73.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_rouw5")
+text = "When I look at this rock it makes me wonder who I really am, what secrets lie in the beginning of it all? How did we evolve to this point in time? If I were ever to find more of these, would I uncover those secrets? I really hope so, that's my goal."
+autowrap_mode = 3
+
+[node name="InteractLabel" type="Label" parent="."]
+offset_left = -25.0
+offset_top = -45.0
+offset_right = 30.0
+offset_bottom = -22.0
+text = "Press E"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
